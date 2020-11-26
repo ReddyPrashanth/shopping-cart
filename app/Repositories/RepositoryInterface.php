@@ -12,8 +12,6 @@ interface RepositoryInterface
 
     public function query(array $filters);
 
-    public function paginate(int $paginator);
-
     public function save(array $data);
 
     public function update(Model $model, array $data);

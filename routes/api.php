@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +25,16 @@ Route::name('categories.')->prefix('categories')->group(function() {
 
 Route::name('products.')->prefix('products')->group(function() {
     Route::get('', [ProductController::class, 'index'])->name('index');
-    Route::get('/featured', [ProductController::class, 'featured'])->name('featured');
+    Route::get('{id}', [ProductController::class, 'show'])->name('show');
+    Route::get('/featured/index', [ProductController::class, 'featured'])->name('featured');
+});
+
+Route::name('reviews.')->prefix('products')->group(function() {
+    Route::get('{id}/reviews', [ReviewController::class, 'index'])->name('index');
+});
+
+Route::name('comments.')->prefix('reviews')->group(function() {
+    Route::get('{id}/comments', [CommentController::class, 'index'])->name('index');
 });
 
 Route::name('sub-categories')->prefix('subCategories')->group(function() {

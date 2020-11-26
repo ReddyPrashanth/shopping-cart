@@ -15,4 +15,19 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\SubCategory', 'product_subcategory', 'product_id', 'sub_category_id', );
     }
+
+    public function sizes()
+    {
+        return $this->belongsToMany('App\Models\Size');
+    }
+
+    public function colors()
+    {
+        return $this->belongsToMany('App\Models\Color');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Review');
+    }
 }

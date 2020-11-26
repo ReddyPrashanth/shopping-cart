@@ -24,8 +24,12 @@ class ProductFactory extends Factory
         $name = $this->faker->firstName;
         return [
             'name' => $name,
+            'title' => $this->faker->sentence,
             'tag' => 'tag-'.$name,
             'description' => $this->faker->text,
+            'count' => random_int(1,8),
+            'rating' => number_format(random_int(1,5), 2, '.', ''),
+            'price' => $this->faker->randomElement([49.99, 89.99, 129.99, 189.99, 259.99]),
             'featured' => $this->faker->randomElement([true, false])
         ];
     }

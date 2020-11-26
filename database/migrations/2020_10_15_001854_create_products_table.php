@@ -17,6 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('tag')->index();
+            $table->string('title');
+            $table->smallInteger('count');
+            $table->string('rating',5);
+            $table->double('price',6,2);
             $table->text('description');
             $table->boolean('active')->default(true);
             $table->boolean('featured')->default(false);

@@ -46,9 +46,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(string $id)
     {
-        //
+        $product = $this->repository->with(['colors','sizes'], $id);
+        return response()->json(['data' => $product], 200);
     }
 
     /**
