@@ -32,7 +32,7 @@ class CategoryRepository implements RepositoryInterface
 
     }
 
-    public function update(Model $model, array $data)
+    public function update($id, array $data)
     {
         
     }
